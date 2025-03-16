@@ -41,18 +41,23 @@
                         return `https://alzahim.github.io/22H03MAP/tiles/1/${x}_${y}.webp`;
                     }
                 },
-                showNavigator: true,
-                defaultZoomLevel: 2,
-                minZoomLevel: 1,
-                maxZoomLevel: 10,
-                immediateRender: true,
-                imageLoaderLimit: 100,
-                preload: true,
-                constrainDuringPan: true,
-                visibilityRatio: 1,
-                wrapHorizontal: true,
-                minPixelRatio: 3.0,
-                maxImageCacheCount: 5000
+            showNavigator: true,
+            defaultZoomLevel: 2,
+            minZoomLevel: 1,
+            maxZoomLevel: 10,
+            animationTime: 0.1, // Accélère encore l'animation
+            blendTime: 0.005, // Réduit encore le délai entre transitions
+            constrainDuringPan: true,
+            visibilityRatio: 1,
+            wrapHorizontal: true, wrapVertical: false,
+            immediateRender: true, // Affiche immédiatement les tuiles disponibles
+            imageLoaderLimit: 100, // Augmente le nombre de tuiles chargées en parallèle
+            preload: true, immediateRender: true, showTileImmediately: true, useCanvas: true, // Précharge les tuiles pour un affichage plus rapide
+            minPixelRatio: 3.0, // Prend les tuiles basses résolutions en priorité
+            springStiffness: 10.0, // Rendu plus rapide en réduisant la latence des animations
+            immediateMode: true, // Force l'affichage immédiat des tuiles disponibles
+            preserveImage: true, // Conserve les tuiles déjà chargées
+            maxImageCacheCount: 5000 // Augmente la mémoire cache pour éviter de recharger les tuiles
             });
 
             console.log("Viewer initialisé :", window.viewer);
